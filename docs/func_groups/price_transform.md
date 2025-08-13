@@ -1,25 +1,25 @@
-# Price Transform Functions
-### AVGPRICE - Average Price
+# 价格变换函数
+### AVGPRICE - 平均价格
 ```python
 real = AVGPRICE(open, high, low, close)
 ```
 
-### MEDPRICE - Median Price
+### MEDPRICE - 中位数价格
 ```python
 real = MEDPRICE(high, low)
 ```
 
-### TYPPRICE - Typical Price
+### TYPPRICE - 典型价格
 ```python
 real = TYPPRICE(high, low, close)
 ```
 
-### WCLPRICE - Weighted Close Price
+### WCLPRICE - 加权收盘价
 ```python
 real = WCLPRICE(high, low, close)
 ```
 
 
-[Documentation Index](../doc_index.md)
+[文档目录](../doc_index.md)
 
-[FLOAT_RIGHTAll Function Groups](../funcs.md)
+[FLOAT_RIGHT所有函数组](../funcs.md)

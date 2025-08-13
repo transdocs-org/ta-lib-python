@@ -1,166 +1,165 @@
-# Momentum Indicator Functions
-### ADX - Average Directional Movement Index
-NOTE: The ``ADX`` function has an unstable period.  
+# 动量指标函数
+### ADX - 平均趋向指数
+注意：``ADX`` 函数具有不稳定周期。  
 ```python
 real = ADX(high, low, close, timeperiod=14)
 ```
 
-### ADXR - Average Directional Movement Index Rating
-NOTE: The ``ADXR`` function has an unstable period.  
+### ADXR - 平均趋向指数评级
+注意：``ADXR`` 函数具有不稳定周期。  
 ```python
 real = ADXR(high, low, close, timeperiod=14)
 ```
 
-### APO - Absolute Price Oscillator
+### APO - 绝对价格振荡器
 ```python
 real = APO(real, fastperiod=12, slowperiod=26, matype=0)
 ```
 
-### AROON - Aroon
+### AROON - 阿隆
 ```python
 aroondown, aroonup = AROON(high, low, timeperiod=14)
 ```
 
-### AROONOSC - Aroon Oscillator
+### AROONOSC - 阿隆振荡器
 ```python
 real = AROONOSC(high, low, timeperiod=14)
 ```
 
-### BOP - Balance Of Power
+### BOP - 均势指标
 ```python
 real = BOP(open, high, low, close)
 ```
 
-### CCI - Commodity Channel Index
+### CCI - 商品通道指数
 ```python
 real = CCI(high, low, close, timeperiod=14)
 ```
 
-### CMO - Chande Momentum Oscillator
-NOTE: The ``CMO`` function has an unstable period.  
+### CMO - 查德动量振荡器
+注意：``CMO`` 函数具有不稳定周期。  
 ```python
 real = CMO(real, timeperiod=14)
 ```
 
-### DX - Directional Movement Index
-NOTE: The ``DX`` function has an unstable period.  
+### DX - 方向运动指数
+注意：``DX`` 函数具有不稳定周期。  
 ```python
 real = DX(high, low, close, timeperiod=14)
 ```
 
-### MACD - Moving Average Convergence/Divergence
+### MACD - 移动平均收敛/发散
 ```python
 macd, macdsignal, macdhist = MACD(real, fastperiod=12, slowperiod=26, signalperiod=9)
 ```
 
-### MACDEXT - MACD with controllable MA type
+### MACDEXT - 可控制移动平均类型的MACD
 ```python
 macd, macdsignal, macdhist = MACDEXT(real, fastperiod=12, fastmatype=0, slowperiod=26, slowmatype=0, signalperiod=9, signalmatype=0)
 ```
 
-### MACDFIX - Moving Average Convergence/Divergence Fix 12/26
+### MACDFIX - 固定12/26的移动平均收敛/发散
 ```python
 macd, macdsignal, macdhist = MACDFIX(real, signalperiod=9)
 ```
 
-### MFI - Money Flow Index
-NOTE: The ``MFI`` function has an unstable period.  
+### MFI - 资金流量指数
+注意：``MFI`` 函数具有不稳定周期。  
 ```python
 real = MFI(high, low, close, volume, timeperiod=14)
 ```
 
-### MINUS_DI - Minus Directional Indicator
-NOTE: The ``MINUS_DI`` function has an unstable period.  
+### MINUS_DI - 负方向指标
+注意：``MINUS_DI`` 函数具有不稳定周期。  
 ```python
 real = MINUS_DI(high, low, close, timeperiod=14)
 ```
 
-### MINUS_DM - Minus Directional Movement
-NOTE: The ``MINUS_DM`` function has an unstable period.  
+### MINUS_DM - 负方向运动
+注意：``MINUS_DM`` 函数具有不稳定周期。  
 ```python
 real = MINUS_DM(high, low, timeperiod=14)
 ```
 
-### MOM - Momentum
+### MOM - 动量指标
 ```python
 real = MOM(real, timeperiod=10)
 ```
 
-### PLUS_DI - Plus Directional Indicator
-NOTE: The ``PLUS_DI`` function has an unstable period.  
+### PLUS_DI - 正方向指标
+注意：``PLUS_DI`` 函数具有不稳定周期。  
 ```python
 real = PLUS_DI(high, low, close, timeperiod=14)
 ```
 
-### PLUS_DM - Plus Directional Movement
-NOTE: The ``PLUS_DM`` function has an unstable period.  
+### PLUS_DM - 正方向运动
+注意：``PLUS_DM`` 函数具有不稳定周期。  
 ```python
 real = PLUS_DM(high, low, timeperiod=14)
 ```
 
-### PPO - Percentage Price Oscillator
+### PPO - 百分比价格振荡器
 ```python
 real = PPO(real, fastperiod=12, slowperiod=26, matype=0)
 ```
 
-### ROC - Rate of change : ((price/prevPrice)-1)*100
+### ROC - 变动率：((price/prevPrice)-1)*100
 ```python
 real = ROC(real, timeperiod=10)
 ```
 
-### ROCP - Rate of change Percentage: (price-prevPrice)/prevPrice
+### ROCP - 变动率百分比：(price-prevPrice)/prevPrice
 ```python
 real = ROCP(real, timeperiod=10)
 ```
 
-### ROCR - Rate of change ratio: (price/prevPrice)
+### ROCR - 变动率比率：(price/prevPrice)
 ```python
 real = ROCR(real, timeperiod=10)
 ```
 
-### ROCR100 - Rate of change ratio 100 scale: (price/prevPrice)*100
+### ROCR100 - 变动率比率100刻度：(price/prevPrice)*100
 ```python
 real = ROCR100(real, timeperiod=10)
 ```
 
-### RSI - Relative Strength Index
-NOTE: The ``RSI`` function has an unstable period.  
+### RSI - 相对强弱指数
+注意：``RSI`` 函数具有不稳定周期。  
 ```python
 real = RSI(real, timeperiod=14)
 ```
 
-### STOCH - Stochastic
+### STOCH - 随机指标
 ```python
 slowk, slowd = STOCH(high, low, close, fastk_period=5, slowk_period=3, slowk_matype=0, slowd_period=3, slowd_matype=0)
 ```
 
-### STOCHF - Stochastic Fast
+### STOCHF - 快速随机指标
 ```python
 fastk, fastd = STOCHF(high, low, close, fastk_period=5, fastd_period=3, fastd_matype=0)
 ```
 
-### STOCHRSI - Stochastic Relative Strength Index
-NOTE: The ``STOCHRSI`` function has an unstable period.  
+### STOCHRSI - 随机相对强弱指数
+注意：``STOCHRSI`` 函数具有不稳定周期。  
 ```python
 fastk, fastd = STOCHRSI(real, timeperiod=14, fastk_period=5, fastd_period=3, fastd_matype=0)
 ```
 
-### TRIX - 1-day Rate-Of-Change (ROC) of a Triple Smooth EMA
+### TRIX - 三重光滑EMA的1日变动率(ROC)
 ```python
 real = TRIX(real, timeperiod=30)
 ```
 
-### ULTOSC - Ultimate Oscillator
+### ULTOSC - 终极振荡器
 ```python
 real = ULTOSC(high, low, close, timeperiod1=7, timeperiod2=14, timeperiod3=28)
 ```
 
-### WILLR - Williams' %R
+### WILLR - 威廉指标%R
 ```python
 real = WILLR(high, low, close, timeperiod=14)
 ```
 
+[文档索引](../doc_index.md)
 
-[Documentation Index](../doc_index.md)
-
-[FLOAT_RIGHTAll Function Groups](../funcs.md)
+[FLOAT_RIGHT所有函数组](../funcs.md)

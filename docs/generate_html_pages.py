@@ -42,9 +42,11 @@ HEADER = '''\
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="TA-Lib : Python wrapper for TA-Lib (https://ta-lib.org/)." />
+    <meta name="description" content="TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。" />
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <title>TA-Lib</title>
+    <title>TA-Lib 中文文档</title>
+    <script defer src="https://cdn.jsdmirror.com/gh/transdocs-org/cdn/transdocs-info-modal.js"></script>
+    <script async src="https://hm.baidu.com/hm.js?2fe1095387fd2f2c25892a4fde2f0cc2"></script>
   </head>
 
   <body>
@@ -53,16 +55,16 @@ HEADER = '''\
             <a id="forkme_banner" href="https://github.com/ta-lib/ta-lib-python">View on GitHub</a>
             <div class="clearfix">
                 <ul id="menu" class="drop">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="doc_index.html">Documentation</a></li>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="doc_index.html">文档</a></li>
                 </ul>
             </div>
             <br>
-            <h1 id="project_title"><a href="https://ta-lib.github.io/ta-lib-python/">TA-Lib</a></h1>
-            <h2 id="project_tagline">Python wrapper for TA-Lib (https://ta-lib.org/).</h2>
+            <h1 id="project_title"><a href="https://ta-lib.github.io/ta-lib-python/">TA-Lib 中文文档</a></h1>
+            <h2 id="project_tagline">TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。</h2>
             <section id="downloads">
-                <a class="zip_download_link" href="https://github.com/ta-lib/ta-lib-python/zipball/master">Download this project as a .zip file</a>
-                <a class="tar_download_link" href="https://github.com/ta-lib/ta-lib-python/tarball/master">Download this project as a tar.gz file</a>
+                <a class="zip_download_link" href="https://github.com/ta-lib/ta-lib-python/zipball/master">下载 .zip 文件</a>
+                <a class="tar_download_link" href="https://github.com/ta-lib/ta-lib-python/tarball/master">下载 tar.gz 文件</a>
             </section>
         </header>
     </div>
@@ -81,8 +83,6 @@ FOOTER = '''\
       <footer class="inner">
         <p class="copyright">TA-Lib written by <a href="https://github.com/mrjbq7">mrjbq7</a>
         and <a href="https://github.com/ta-lib/ta-lib-python/network/members">contributors</a></p>
-        
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
@@ -96,31 +96,7 @@ def slugify(string):
 
 
 def get_doc_links():
-    """Returns a dictionary of function names -> upstream documentation link"""
-    tadoc_homepage = 'https://www.tadoc.org/'
-    html_file_path = os.path.join(INPUT_DIR, '.tadoc.org.html')
-    if os.path.exists(html_file_path):
-        with open(html_file_path, 'r') as f:
-            html = f.read()
-    else:
-        if sys.version_info < (2, 8):
-            from urllib2 import urlopen
-        else:
-            from urllib.request import urlopen
-
-        html = urlopen(tadoc_homepage).read()
-        with open(html_file_path, 'wb') as f:
-            f.write(html)
-
-    # find every link that's for an indicator and convert to absolute urls
-    soup = BeautifulSoup(html, 'html.parser')
-    links = [a for a in soup.findAll('a') if 'indicator' in a['href']]
-    ret = {}
-    for a in links:
-        url = ''.join([tadoc_homepage, a['href']])
-        func = url[url.rfind('/')+1:url.rfind('.')]
-        ret[func] = url
-    return ret
+    return {}
 
 
 def generate_groups_markdown():

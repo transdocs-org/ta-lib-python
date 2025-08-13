@@ -1,310 +1,310 @@
-# Pattern Recognition Functions
-### CDL2CROWS - Two Crows
+# 形态识别函数
+### CDL2CROWS - 两只乌鸦
 ```python
 integer = CDL2CROWS(open, high, low, close)
 ```
 
-### CDL3BLACKCROWS - Three Black Crows
+### CDL3BLACKCROWS - 三只乌鸦
 ```python
 integer = CDL3BLACKCROWS(open, high, low, close)
 ```
 
-### CDL3INSIDE - Three Inside Up/Down
+### CDL3INSIDE - 三内部上涨/下跌
 ```python
 integer = CDL3INSIDE(open, high, low, close)
 ```
 
-### CDL3LINESTRIKE - Three-Line Strike 
+### CDL3LINESTRIKE - 三线打击
 ```python
 integer = CDL3LINESTRIKE(open, high, low, close)
 ```
 
-### CDL3OUTSIDE - Three Outside Up/Down
+### CDL3OUTSIDE - 三外部上涨/下跌
 ```python
 integer = CDL3OUTSIDE(open, high, low, close)
 ```
 
-### CDL3STARSINSOUTH - Three Stars In The South
+### CDL3STARSINSOUTH - 南方三星
 ```python
 integer = CDL3STARSINSOUTH(open, high, low, close)
 ```
 
-### CDL3WHITESOLDIERS - Three Advancing White Soldiers
+### CDL3WHITESOLDIERS - 三个白兵
 ```python
 integer = CDL3WHITESOLDIERS(open, high, low, close)
 ```
 
-### CDLABANDONEDBABY - Abandoned Baby
+### CDLABANDONEDBABY - 弃婴形态
 ```python
 integer = CDLABANDONEDBABY(open, high, low, close, penetration=0)
 ```
 
-### CDLADVANCEBLOCK - Advance Block
+### CDLADVANCEBLOCK - 前进受阻
 ```python
 integer = CDLADVANCEBLOCK(open, high, low, close)
 ```
 
-### CDLBELTHOLD - Belt-hold
+### CDLBELTHOLD - 持带线
 ```python
 integer = CDLBELTHOLD(open, high, low, close)
 ```
 
-### CDLBREAKAWAY - Breakaway
+### CDLBREAKAWAY - 脱离形态
 ```python
 integer = CDLBREAKAWAY(open, high, low, close)
 ```
 
-### CDLCLOSINGMARUBOZU - Closing Marubozu
+### CDLCLOSINGMARUBOZU - 收盘秃头线
 ```python
 integer = CDLCLOSINGMARUBOZU(open, high, low, close)
 ```
 
-### CDLCONCEALBABYSWALL - Concealing Baby Swallow
+### CDLCONCEALBABYSWALL - 隐藏的婴儿吞噬形态
 ```python
 integer = CDLCONCEALBABYSWALL(open, high, low, close)
 ```
 
-### CDLCOUNTERATTACK - Counterattack
+### CDLCOUNTERATTACK - 反击线
 ```python
 integer = CDLCOUNTERATTACK(open, high, low, close)
 ```
 
-### CDLDARKCLOUDCOVER - Dark Cloud Cover
+### CDLDARKCLOUDCOVER - 乌云盖顶
 ```python
 integer = CDLDARKCLOUDCOVER(open, high, low, close, penetration=0)
 ```
 
-### CDLDOJI - Doji
+### CDLDOJI - 十字星
 ```python
 integer = CDLDOJI(open, high, low, close)
 ```
 
-### CDLDOJISTAR - Doji Star
+### CDLDOJISTAR - 十字星线
 ```python
 integer = CDLDOJISTAR(open, high, low, close)
 ```
 
-### CDLDRAGONFLYDOJI - Dragonfly Doji
+### CDLDRAGONFLYDOJI - 蜻蜓十字星
 ```python
 integer = CDLDRAGONFLYDOJI(open, high, low, close)
 ```
 
-### CDLENGULFING - Engulfing Pattern
+### CDLENGULFING - 吞没形态
 ```python
 integer = CDLENGULFING(open, high, low, close)
 ```
 
-### CDLEVENINGDOJISTAR - Evening Doji Star
+### CDLEVENINGDOJISTAR - 傍晚十字星
 ```python
 integer = CDLEVENINGDOJISTAR(open, high, low, close, penetration=0)
 ```
 
-### CDLEVENINGSTAR - Evening Star
+### CDLEVENINGSTAR - 傍晚之星
 ```python
 integer = CDLEVENINGSTAR(open, high, low, close, penetration=0)
 ```
 
-### CDLGAPSIDESIDEWHITE - Up/Down-gap side-by-side white lines
+### CDLGAPSIDESIDEWHITE - 上升/下降跳空中白线
 ```python
 integer = CDLGAPSIDESIDEWHITE(open, high, low, close)
 ```
 
-### CDLGRAVESTONEDOJI - Gravestone Doji
+### CDLGRAVESTONEDOJI - 陵墓十字星
 ```python
 integer = CDLGRAVESTONEDOJI(open, high, low, close)
 ```
 
-### CDLHAMMER - Hammer
+### CDLHAMMER - 锤头形态
 ```python
 integer = CDLHAMMER(open, high, low, close)
 ```
 
-### CDLHANGINGMAN - Hanging Man
+### CDLHANGINGMAN - 上吊线
 ```python
 integer = CDLHANGINGMAN(open, high, low, close)
 ```
 
-### CDLHARAMI - Harami Pattern
+### CDLHARAMI - 孕线形态
 ```python
 integer = CDLHARAMI(open, high, low, close)
 ```
 
-### CDLHARAMICROSS - Harami Cross Pattern
+### CDLHARAMICROSS - 十字孕线形态
 ```python
 integer = CDLHARAMICROSS(open, high, low, close)
 ```
 
-### CDLHIGHWAVE - High-Wave Candle
+### CDLHIGHWAVE - 高波形态
 ```python
 integer = CDLHIGHWAVE(open, high, low, close)
 ```
 
-### CDLHIKKAKE - Hikkake Pattern
+### CDLHIKKAKE - 套牢形态
 ```python
 integer = CDLHIKKAKE(open, high, low, close)
 ```
 
-### CDLHIKKAKEMOD - Modified Hikkake Pattern
+### CDLHIKKAKEMOD - 修正套牢形态
 ```python
 integer = CDLHIKKAKEMOD(open, high, low, close)
 ```
 
-### CDLHOMINGPIGEON - Homing Pigeon
+### CDLHOMINGPIGEON - 归巢鸽形态
 ```python
 integer = CDLHOMINGPIGEON(open, high, low, close)
 ```
 
-### CDLIDENTICAL3CROWS - Identical Three Crows
+### CDLIDENTICAL3CROWS - 相同三只乌鸦
 ```python
 integer = CDLIDENTICAL3CROWS(open, high, low, close)
 ```
 
-### CDLINNECK - In-Neck Pattern
+### CDLINNECK - 颈内形态
 ```python
 integer = CDLINNECK(open, high, low, close)
 ```
 
-### CDLINVERTEDHAMMER - Inverted Hammer
+### CDLINVERTEDHAMMER - 倒锤头
 ```python
 integer = CDLINVERTEDHAMMER(open, high, low, close)
 ```
 
-### CDLKICKING - Kicking
+### CDLKICKING - 跳空形态
 ```python
 integer = CDLKICKING(open, high, low, close)
 ```
 
-### CDLKICKINGBYLENGTH - Kicking - bull/bear determined by the longer marubozu
+### CDLKICKINGBYLENGTH - 根据实体长度判断的跳空形态
 ```python
 integer = CDLKICKINGBYLENGTH(open, high, low, close)
 ```
 
-### CDLLADDERBOTTOM - Ladder Bottom
+### CDLLADDERBOTTOM - 梯底形态
 ```python
 integer = CDLLADDERBOTTOM(open, high, low, close)
 ```
 
-### CDLLONGLEGGEDDOJI - Long Legged Doji
+### CDLLONGLEGGEDDOJI - 长腿十字星
 ```python
 integer = CDLLONGLEGGEDDOJI(open, high, low, close)
 ```
 
-### CDLLONGLINE - Long Line Candle
+### CDLLONGLINE - 长线蜡烛
 ```python
 integer = CDLLONGLINE(open, high, low, close)
 ```
 
-### CDLMARUBOZU - Marubozu
+### CDLMARUBOZU - 光头光脚线
 ```python
 integer = CDLMARUBOZU(open, high, low, close)
 ```
 
-### CDLMATCHINGLOW - Matching Low
+### CDLMATCHINGLOW - 相同低价形态
 ```python
 integer = CDLMATCHINGLOW(open, high, low, close)
 ```
 
-### CDLMATHOLD - Mat Hold
+### CDLMATHOLD - 铺垫形态
 ```python
 integer = CDLMATHOLD(open, high, low, close, penetration=0)
 ```
 
-### CDLMORNINGDOJISTAR - Morning Doji Star
+### CDLMORNINGDOJISTAR - 早晨十字星
 ```python
 integer = CDLMORNINGDOJISTAR(open, high, low, close, penetration=0)
 ```
 
-### CDLMORNINGSTAR - Morning Star
+### CDLMORNINGSTAR - 早晨之星
 ```python
 integer = CDLMORNINGSTAR(open, high, low, close, penetration=0)
 ```
 
-### CDLONNECK - On-Neck Pattern
+### CDLONNECK - 颈上线
 ```python
 integer = CDLONNECK(open, high, low, close)
 ```
 
-### CDLPIERCING - Piercing Pattern
+### CDLPIERCING - 刺透形态
 ```python
 integer = CDLPIERCING(open, high, low, close)
 ```
 
-### CDLRICKSHAWMAN - Rickshaw Man
+### CDLRICKSHAWMAN - 人力车夫形态
 ```python
 integer = CDLRICKSHAWMAN(open, high, low, close)
 ```
 
-### CDLRISEFALL3METHODS - Rising/Falling Three Methods
+### CDLRISEFALL3METHODS - 上升/下降三法
 ```python
 integer = CDLRISEFALL3METHODS(open, high, low, close)
 ```
 
-### CDLSEPARATINGLINES - Separating Lines
+### CDLSEPARATINGLINES - 分离线形态
 ```python
 integer = CDLSEPARATINGLINES(open, high, low, close)
 ```
 
-### CDLSHOOTINGSTAR - Shooting Star
+### CDLSHOOTINGSTAR - 射击之星
 ```python
 integer = CDLSHOOTINGSTAR(open, high, low, close)
 ```
 
-### CDLSHORTLINE - Short Line Candle
+### CDLSHORTLINE - 短线蜡烛
 ```python
 integer = CDLSHORTLINE(open, high, low, close)
 ```
 
-### CDLSPINNINGTOP - Spinning Top
+### CDLSPINNINGTOP - 纺锤线
 ```python
 integer = CDLSPINNINGTOP(open, high, low, close)
 ```
 
-### CDLSTALLEDPATTERN - Stalled Pattern
+### CDLSTALLEDPATTERN - 停滞形态
 ```python
 integer = CDLSTALLEDPATTERN(open, high, low, close)
 ```
 
-### CDLSTICKSANDWICH - Stick Sandwich
+### CDLSTICKSANDWICH - 棒夹线
 ```python
 integer = CDLSTICKSANDWICH(open, high, low, close)
 ```
 
-### CDLTAKURI - Takuri (Dragonfly Doji with very long lower shadow)
+### CDLTAKURI - 垂钓者（蜻蜓十字星带非常长的下影线）
 ```python
 integer = CDLTAKURI(open, high, low, close)
 ```
 
-### CDLTASUKIGAP - Tasuki Gap
+### CDLTASUKIGAP - 跳空并列线
 ```python
 integer = CDLTASUKIGAP(open, high, low, close)
 ```
 
-### CDLTHRUSTING - Thrusting Pattern
+### CDLTHRUSTING - 插入线形态
 ```python
 integer = CDLTHRUSTING(open, high, low, close)
 ```
 
-### CDLTRISTAR - Tristar Pattern
+### CDLTRISTAR - 三星形态
 ```python
 integer = CDLTRISTAR(open, high, low, close)
 ```
 
-### CDLUNIQUE3RIVER - Unique 3 River
+### CDLUNIQUE3RIVER - 独特三河形态
 ```python
 integer = CDLUNIQUE3RIVER(open, high, low, close)
 ```
 
-### CDLUPSIDEGAP2CROWS - Upside Gap Two Crows
+### CDLUPSIDEGAP2CROWS - 向上跳空两只乌鸦
 ```python
 integer = CDLUPSIDEGAP2CROWS(open, high, low, close)
 ```
 
-### CDLXSIDEGAP3METHODS - Upside/Downside Gap Three Methods
+### CDLXSIDEGAP3METHODS - 上下跳空三法
 ```python
 integer = CDLXSIDEGAP3METHODS(open, high, low, close)
 ```
 
 
-[Documentation Index](../doc_index.md)
+[文档索引](../doc_index.md)
 
-[FLOAT_RIGHTAll Function Groups](../funcs.md)
+[FLOAT_RIGHT所有函数组](../funcs.md)

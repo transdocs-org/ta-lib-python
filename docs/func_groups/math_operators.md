@@ -1,60 +1,59 @@
-# Math Operator Functions
-### ADD - Vector Arithmetic Add
+# 数学运算符函数
+### ADD - 向量算术加法
 ```python
 real = ADD(real0, real1)
 ```
 
-### DIV - Vector Arithmetic Div
+### DIV - 向量算术除法
 ```python
 real = DIV(real0, real1)
 ```
 
-### MAX - Highest value over a specified period
+### MAX - 指定周期内的最大值
 ```python
 real = MAX(real, timeperiod=30)
 ```
 
-### MAXINDEX - Index of highest value over a specified period
+### MAXINDEX - 指定周期内最大值的索引
 ```python
 integer = MAXINDEX(real, timeperiod=30)
 ```
 
-### MIN - Lowest value over a specified period
+### MIN - 指定周期内的最小值
 ```python
 real = MIN(real, timeperiod=30)
 ```
 
-### MININDEX - Index of lowest value over a specified period
+### MININDEX - 指定周期内最小值的索引
 ```python
 integer = MININDEX(real, timeperiod=30)
 ```
 
-### MINMAX - Lowest and highest values over a specified period
+### MINMAX - 指定周期内的最小值和最大值
 ```python
 min, max = MINMAX(real, timeperiod=30)
 ```
 
-### MINMAXINDEX - Indexes of lowest and highest values over a specified period
+### MINMAXINDEX - 指定周期内最小值和最大值的索引
 ```python
 minidx, maxidx = MINMAXINDEX(real, timeperiod=30)
 ```
 
-### MULT - Vector Arithmetic Mult
+### MULT - 向量算术乘法
 ```python
 real = MULT(real0, real1)
 ```
 
-### SUB - Vector Arithmetic Subtraction
+### SUB - 向量算术减法
 ```python
 real = SUB(real0, real1)
 ```
 
-### SUM - Summation
+### SUM - 求和
 ```python
 real = SUM(real, timeperiod=30)
 ```
 
+[文档目录](../doc_index.md)
 
-[Documentation Index](../doc_index.md)
-
-[FLOAT_RIGHTAll Function Groups](../funcs.md)
+[所有函数组](../funcs.md)FLOAT_RIGHT

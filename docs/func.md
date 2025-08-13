@@ -1,14 +1,10 @@
-# Function API Examples
+# 函数 API 示例
 
-Similar to TA-Lib, the function interface provides a lightweight wrapper of
-the exposed TA-Lib indicators.
+与 TA-Lib 类似，函数接口为其公开的 TA-Lib 指标提供了一个轻量级的封装。
 
-Each function returns an output array and have default values for their
-parameters, unless specified as keyword arguments. Typically, these functions
-will have an initial "lookback" period (a required number of observations
-before an output is generated) set to ``NaN``.
+每个函数都会返回一个输出数组，并且它们的参数都具有默认值，除非以关键字参数的形式另行指定。通常，这些函数会有一个初始“回看”周期（生成输出之前所需的观察值数量），该周期的值被设为 ``NaN``。
 
-All of the following examples use the function API:
+以下所有示例均使用函数 API：
 
 ```python
 import numpy
@@ -17,13 +13,13 @@ import talib
 close = numpy.random.random(100)
 ```
 
-Calculate a simple moving average of the close prices:
+计算收盘价的简单移动平均：
 
 ```python
 output = talib.SMA(close)
 ```
 
-Calculating bollinger bands, with triple exponential moving average:
+使用三重指数移动平均计算布林带：
 
 ```python
 from talib import MA_Type
@@ -31,24 +27,24 @@ from talib import MA_Type
 upper, middle, lower = talib.BBANDS(close, matype=MA_Type.T3)
 ```
 
-Calculating momentum of the close prices, with a time period of 5:
+计算收盘价的动量指标，时间周期设为 5：
 
 ```python
 output = talib.MOM(close, timeperiod=5)
 ```
 
-Documentation for all functions:
+所有函数的文档：
 
-* [Overlap Studies](func_groups/overlap_studies.md)
-* [Momentum Indicators](func_groups/momentum_indicators.md)
-* [Volume Indicators](func_groups/volume_indicators.md)
-* [Volatility Indicators](func_groups/volatility_indicators.md)
-* [Pattern Recognition](func_groups/pattern_recognition.md)
-* [Cycle Indicators](func_groups/cycle_indicators.md)
-* [Statistic Functions](func_groups/statistic_functions.md)
-* [Price Transform](func_groups/price_transform.md)
-* [Math Transform](func_groups/math_transform.md)
-* [Math Operators](func_groups/math_operators.md)
+* [重叠研究](func_groups/overlap_studies.md)
+* [动量指标](func_groups/momentum_indicators.md)
+* [成交量指标](func_groups/volume_indicators.md)
+* [波动率指标](func_groups/volatility_indicators.md)
+* [形态识别](func_groups/pattern_recognition.md)
+* [周期指标](func_groups/cycle_indicators.md)
+* [统计函数](func_groups/statistic_functions.md)
+* [价格变换](func_groups/price_transform.md)
+* [数学变换](func_groups/math_transform.md)
+* [数学运算符](func_groups/math_operators.md)
 
-[Documentation Index](doc_index.md)
-[FLOAT_RIGHTNext: Using the Abstract API](abstract.md)
+[文档索引](doc_index.md)
+[FLOAT_RIGHT 下一步：使用抽象 API](abstract.md)

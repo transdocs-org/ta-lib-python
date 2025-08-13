@@ -1,50 +1,50 @@
-# Statistic Functions
-### BETA - Beta
+# 统计函数
+### BETA - 贝塔系数
 ```python
 real = BETA(real0, real1, timeperiod=5)
 ```
 
-### CORREL - Pearson's Correlation Coefficient (r)
+### CORREL - 皮尔逊相关系数 (r)
 ```python
 real = CORREL(real0, real1, timeperiod=30)
 ```
 
-### LINEARREG - Linear Regression
+### LINEARREG - 线性回归
 ```python
 real = LINEARREG(real, timeperiod=14)
 ```
 
-### LINEARREG_ANGLE - Linear Regression Angle
+### LINEARREG_ANGLE - 线性回归角度
 ```python
 real = LINEARREG_ANGLE(real, timeperiod=14)
 ```
 
-### LINEARREG_INTERCEPT - Linear Regression Intercept
+### LINEARREG_INTERCEPT - 线性回归截距
 ```python
 real = LINEARREG_INTERCEPT(real, timeperiod=14)
 ```
 
-### LINEARREG_SLOPE - Linear Regression Slope
+### LINEARREG_SLOPE - 线性回归斜率
 ```python
 real = LINEARREG_SLOPE(real, timeperiod=14)
 ```
 
-### STDDEV - Standard Deviation
+### STDDEV - 标准差
 ```python
 real = STDDEV(real, timeperiod=5, nbdev=1)
 ```
 
-### TSF - Time Series Forecast
+### TSF - 时间序列预测
 ```python
 real = TSF(real, timeperiod=14)
 ```
 
-### VAR - Variance
+### VAR - 方差
 ```python
 real = VAR(real, timeperiod=5, nbdev=1)
 ```
 
 
-[Documentation Index](../doc_index.md)
+[文档目录](../doc_index.md)
 
-[FLOAT_RIGHTAll Function Groups](../funcs.md)
+[FLOAT_RIGHT所有函数组](../funcs.md)
