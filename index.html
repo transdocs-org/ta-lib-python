@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>TA-Lib 中文文档</title>
+    <script defer src="https://cdn.jsdmirror.com/gh/transdocs-org/cdn/transdocs-info-modal.js"></script>
+    <script async src="https://hm.baidu.com/hm.js?2fe1095387fd2f2c25892a4fde2f0cc2"></script>
+  </head>
+
+  <body>
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://github.com/ta-lib/ta-lib-python">View on GitHub</a>
+            <div class="clearfix">
+                <ul id="menu" class="drop">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="doc_index.html">文档</a></li>
+                </ul>
+            </div>
+            <br>
+            <h1 id="project_title"><a href="https://ta-lib.github.io/ta-lib-python/">TA-Lib 中文文档</a></h1>
+            <h2 id="project_tagline">TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。</h2>
+            <section id="downloads">
+                <a class="zip_download_link" href="https://github.com/ta-lib/ta-lib-python/zipball/master">下载 .zip 文件</a>
+                <a class="tar_download_link" href="https://github.com/ta-lib/ta-lib-python/tarball/master">下载 tar.gz 文件</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+<h1>关于</h1>
+<p>这是一个基于 Cython 而非 SWIG 的 <a href="https://ta-lib.org">TA-LIB</a> Python 封装。摘自其官网：</p>
+<blockquote>
+<p>TA-Lib 被交易软件开发者广泛使用，用于对金融市场数据进行技术分析。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>包含150多个指标，如 ADX、MACD、RSI、随机指标、布林带等。</li>
+<li>支持蜡烛图模式识别</li>
+<li>提供 C/C++、Java、Perl、Python 和 100% 托管 .NET 的开源 API</li>
+</ul>
+</blockquote>
+<p>原始的 Python 绑定使用 <a href="https://swig.org">SWIG</a>，但其安装困难且效率不高。因此，本项目使用 Cython 和 Numpy 来高效而简洁地绑定到 TA-Lib —— 产生的结果比 SWIG 接口快 2-4 倍。</p>
+<h4><a href="install.html">安装 TA-Lib</a> 或 <a href="doc_index.html">阅读文档</a></h4>
+<h2>示例</h2>
+<p>与 TA-Lib 类似，函数接口为公开的 TA-Lib 指标提供了一个轻量级封装。</p>
+<p>每个函数返回一个输出数组，并对其参数具有默认值，除非指定为关键字参数。通常，这些函数会有一个初始的“回望”期（在生成输出之前所需的观察数），该值被设置为 <code>NaN</code>。</p>
+<p>以下所有示例都使用函数 API：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">import</span><span class="highlight w"> </span><span class="highlight nn">numpy</span>
+<span class="highlight kn">import</span><span class="highlight w"> </span><span class="highlight nn">talib</span>
+
+<span class="highlight n">close</span> <span class="highlight o">=</span> <span class="highlight n">numpy</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">)</span>
+</pre></div>
+<p>计算收盘价的简单移动平均：</p>
+<div class="highlight"><pre><span></span><span class="highlight n">output</span> <span class="highlight o">=</span> <span class="highlight n">talib</span><span class="highlight o">.</span><span class="highlight n">SMA</span><span class="highlight p">(</span><span class="highlight n">close</span><span class="highlight p">)</span>
+</pre></div>
+<p>使用三重指数移动平均计算布林带：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">from</span><span class="highlight w"> </span><span class="highlight nn">talib</span><span class="highlight w"> </span><span class="highlight kn">import</span> <span class="highlight n">MA_Type</span>
+
+<span class="highlight n">upper</span><span class="highlight p">,</span> <span class="highlight n">middle</span><span class="highlight p">,</span> <span class="highlight n">lower</span> <span class="highlight o">=</span> <span class="highlight n">talib</span><span class="highlight o">.</span><span class="highlight n">BBANDS</span><span class="highlight p">(</span><span class="highlight n">close</span><span class="highlight p">,</span> <span class="highlight n">matype</span><span class="highlight o">=</span><span class="highlight n">MA_Type</span><span class="highlight o">.</span><span class="highlight n">T3</span><span class="highlight p">)</span>
+</pre></div>
+<p>计算收盘价的动量，时间周期为 5：</p>
+<div class="highlight"><pre><span></span><span class="highlight n">output</span> <span class="highlight o">=</span> <span class="highlight n">talib</span><span class="highlight o">.</span><span class="highlight n">MOM</span><span class="highlight p">(</span><span class="highlight n">close</span><span class="highlight p">,</span> <span class="highlight n">timeperiod</span><span class="highlight o">=</span><span class="highlight mi">5</span><span class="highlight p">)</span>
+</pre></div>
+<h2>抽象 API 快速入门</h2>
+<p>如果您已经熟悉使用函数 API，那么使用抽象 API 也会感到很熟悉。每个函数接受相同的输入，作为 Numpy 数组的字典传递：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">import</span><span class="highlight w"> </span><span class="highlight nn">numpy</span><span class="highlight w"> </span><span class="highlight k">as</span><span class="highlight w"> </span><span class="highlight nn">np</span>
+<span class="highlight c1"># 注意：所有的 ndarray 必须长度相同！</span>
+<span class="highlight n">inputs</span> <span class="highlight o">=</span> <span class="highlight p">{</span>
+    <span class="highlight s1">&#39;open&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;high&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;low&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;close&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;volume&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">)</span>
+<span class="highlight p">}</span>
+</pre></div>
+<p>函数可以直接导入或通过名称实例化：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">from</span><span class="highlight w"> </span><span class="highlight nn">talib</span><span class="highlight w"> </span><span class="highlight kn">import</span> <span class="highlight n">abstract</span>
+<span class="highlight n">sma</span> <span class="highlight o">=</span> <span class="highlight n">abstract</span><span class="highlight o">.</span><span class="highlight n">SMA</span>
+<span class="highlight n">sma</span> <span class="highlight o">=</span> <span class="highlight n">abstract</span><span class="highlight o">.</span><span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;sma&#39;</span><span class="highlight p">)</span>
+</pre></div>
+<p>从那之后，调用函数与函数 API 基本相同：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">from</span><span class="highlight w"> </span><span class="highlight nn">talib.abstract</span><span class="highlight w"> </span><span class="highlight kn">import</span> <span class="highlight o">*</span>
+<span class="highlight n">output</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight p">(</span><span class="highlight n">input_arrays</span><span class="highlight p">,</span> <span class="highlight n">timeperiod</span><span class="highlight o">=</span><span class="highlight mi">25</span><span class="highlight p">)</span> <span class="highlight c1"># 默认计算收盘价</span>
+<span class="highlight n">output</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight p">(</span><span class="highlight n">input_arrays</span><span class="highlight p">,</span> <span class="highlight n">timeperiod</span><span class="highlight o">=</span><span class="highlight mi">25</span><span class="highlight p">,</span> <span class="highlight n">price</span><span class="highlight o">=</span><span class="highlight s1">&#39;open&#39;</span><span class="highlight p">)</span> <span class="highlight c1"># 计算开盘价</span>
+<span class="highlight n">upper</span><span class="highlight p">,</span> <span class="highlight n">middle</span><span class="highlight p">,</span> <span class="highlight n">lower</span> <span class="highlight o">=</span> <span class="highlight n">BBANDS</span><span class="highlight p">(</span><span class="highlight n">input_arrays</span><span class="highlight p">,</span> <span class="highlight mi">20</span><span class="highlight p">,</span> <span class="highlight mi">2</span><span class="highlight p">,</span> <span class="highlight mi">2</span><span class="highlight p">)</span>
+<span class="highlight n">slowk</span><span class="highlight p">,</span> <span class="highlight n">slowd</span> <span class="highlight o">=</span> <span class="highlight n">STOCH</span><span class="highlight p">(</span><span class="highlight n">input_arrays</span><span class="highlight p">,</span> <span class="highlight mi">5</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">)</span> <span class="highlight c1"># 默认使用 high, low, close</span>
+<span class="highlight n">slowk</span><span class="highlight p">,</span> <span class="highlight n">slowd</span> <span class="highlight o">=</span> <span class="highlight n">STOCH</span><span class="highlight p">(</span><span class="highlight n">input_arrays</span><span class="highlight p">,</span> <span class="highlight mi">5</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">,</span> <span class="highlight n">prices</span><span class="highlight o">=</span><span class="highlight p">[</span><span class="highlight s1">&#39;high&#39;</span><span class="highlight p">,</span> <span class="highlight s1">&#39;low&#39;</span><span class="highlight p">,</span> <span class="highlight s1">&#39;open&#39;</span><span class="highlight p">])</span>
+</pre></div>
+<p>了解更多关于 TA-Lib 的高级用法 <a href="abstract.html">点击此处</a>。</p>
+<h2>支持的指标</h2>
+<p>我们可以列出 TA-Lib 支持的所有 TA 函数，可以是 <code>list</code> 或按组（例如 &quot;Overlap Studies&quot;、&quot;Momentum Indicators&quot; 等）排序的 <code>dict</code>：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">import</span><span class="highlight w"> </span><span class="highlight nn">talib</span>
+
+<span class="highlight nb">print</span> <span class="highlight n">talib</span><span class="highlight o">.</span><span class="highlight n">get_functions</span><span class="highlight p">()</span>
+<span class="highlight nb">print</span> <span class="highlight n">talib</span><span class="highlight o">.</span><span class="highlight n">get_function_groups</span><span class="highlight p">()</span>
+</pre></div>
+<h3>函数组</h3>
+<ul>
+<li><a href="func_groups/overlap_studies.html">重叠研究</a></li>
+<li><a href="func_groups/momentum_indicators.html">动量指标</a></li>
+<li><a href="func_groups/volume_indicators.html">成交量指标</a></li>
+<li><a href="func_groups/volatility_indicators.html">波动率指标</a></li>
+<li><a href="func_groups/price_transform.html">价格转换</a></li>
+<li><a href="func_groups/cycle_indicators.html">周期指标</a></li>
+<li><a href="func_groups/pattern_recognition.html">形态识别</a></li>
+<li><a href="func_groups/statistic_functions.html">统计函数</a></li>
+<li><a href="func_groups/math_transform.html">数学变换</a></li>
+<li><a href="func_groups/math_operators.html">数学运算符</a></li>
+</ul>
+<h4><a href="func_groups/overlap_studies.html">重叠研究</a></h4>
+
+<pre><code>BBANDS               布林带
+DEMA                 双重指数移动平均
+EMA                  指数移动平均
+HT_TRENDLINE         希尔伯特变换 - 即时趋势线
+KAMA                 考夫曼自适应移动平均
+MA                   移动平均
+MAMA                 MESA 自适应移动平均
+MAVP                 可变周期移动平均
+MIDPOINT             周期内中点
+MIDPRICE             周期内中位价格
+SAR                  抛物线转向指标
+SAREXT               抛物线转向指标扩展版
+SMA                  简单移动平均
+T3                   三重指数移动平均 (T3)
+TEMA                 三重指数移动平均
+TRIMA                三角移动平均
+WMA                  加权移动平均
+</code></pre>
+<h4><a href="func_groups/momentum_indicators.html">动量指标</a></h4>
+
+<pre><code>ADX                  平均趋向指数
+ADXR                 平均趋向指数评级
+APO                  绝对价格震荡器
+AROON                阿隆
+AROONOSC             阿隆震荡器
+BOP                  力度指标
+CCI                  商品通道指数
+CMO                  查德动量震荡器
+DX                   方向性运动指数
+MACD                 移动平均收敛/发散
+MACDEXT              具有可控移动平均类型的 MACD
+MACDFIX              固定移动平均收敛/发散 (12/26)
+MFI                  资金流量指数
+MINUS_DI             负方向指标
+MINUS_DM             负方向变动
+MOM                  动量
+PLUS_DI              正方向指标
+PLUS_DM              正方向变动
+PPO                  百分比价格震荡器
+ROC                  变化率：((价格/前一价格)-1)*100
+ROCP                 变化率百分比：(价格-前一价格)/前一价格
+ROCR                 变化率比率：(价格/前一价格)
+ROCR100              变化率比率 100 比例：(价格/前一价格)*100
+RSI                  相对强弱指数
+STOCH                随机指标
+STOCHF               快速随机指标
+STOCHRSI             随机相对强弱指数
+TRIX                 三重平滑 EMA 的 1 天变化率 (ROC)
+ULTOSC               终极震荡器
+WILLR                威廉指标 %R
+</code></pre>
+<h4><a href="func_groups/volume_indicators.html">成交量指标</a></h4>
+
+<pre><code>AD                   嘉路兰 A/D 线
+ADOSC                嘉路兰 A/D 震荡器
+OBV                  平衡成交量
+</code></pre>
+<h4><a href="func_groups/volatility_indicators.html">波动率指标</a></h4>
+
+<pre><code>ATR                  平均真实波幅
+NATR                 标准化平均真实波幅
+TRANGE               真实波幅范围
+</code></pre>
+<h4><a href="func_groups/price_transform.html">价格转换</a></h4>
+
+<pre><code>AVGPRICE             平均价格
+MEDPRICE             中间价格
+TYPPRICE             典型价格
+WCLPRICE             加权收盘价
+</code></pre>
+<h4><a href="func_groups/cycle_indicators.html">周期指标</a></h4>
+
+<pre><code>HT_DCPERIOD          希尔伯特变换 - 主导周期期数
+HT_DCPHASE           希尔伯特变换 - 主导周期相位
+HT_PHASOR            希尔伯特变换 - 相量组件
+HT_SINE              希尔伯特变换 - 正弦波
+HT_TRENDMODE         希尔伯特变换 - 趋势与周期模式
+</code></pre>
+<h4><a href="func_groups/pattern_recognition.html">形态识别</a></h4>
+
+<pre><code>CDL2CROWS            两只乌鸦
+CDL3BLACKCROWS       三只乌鸦
+CDL3INSIDE           三内部上涨/下跌
+CDL3LINESTRIKE       三线打击
+CDL3OUTSIDE          三外部上涨/下跌
+CDL3STARSINSOUTH     南方三星
+CDL3WHITESOLDIERS    三白兵
+CDLABANDONEDBABY     弃婴形态
+CDLADVANCEBLOCK      前进受阻形态
+CDLBELTHOLD          腰带形态
+CDLBREAKAWAY         脱离形态
+CDLCLOSINGMARUBOZU   收盘光头光脚
+CDLCONCEALBABYSWALL  隐藏的吞没形态
+CDLCOUNTERATTACK     反击形态
+CDLDARKCLOUDCOVER    乌云盖顶
+CDLDOJI              十字星
+CDLDOJISTAR          十字星形态
+CDLDRAGONFLYDOJI     蜻蜓十字星
+CDLENGULFING         吞没形态
+CDLEVENINGDOJISTAR   暮星十字星
+CDLEVENINGSTAR       暮星
+CDLGAPSIDESIDEWHITE  上/下跳空并列阳线
+CDLGRAVESTONEDOJI    墓碑十字星
+CDLHAMMER            锤头
+CDLHANGINGMAN        上吊线
+CDLHARAMI            孕线形态
+CDLHARAMICROSS       十字孕线形态
+CDLHIGHWAVE          高波烛形态
+CDLHIKKAKE           反转型态
+CDLHIKKAKEMOD        改进型反转型态
+CDLHOMINGPIGEON      归巢鸽形态
+CDLIDENTICAL3CROWS   相同三只乌鸦
+CDLINNECK            颈内形态
+CDLINVERTEDHAMMER    倒锤头
+CDLKICKING           跳空并列阳线
+CDLKICKINGBYLENGTH   根据较长光头光脚确定多空的跳空并列形态
+CDLLADDERBOTTOM      梯底形态
+CDLLONGLEGGEDDOJI    长腿十字星
+CDLLONGLINE          长线烛形态
+CDLMARUBOZU          光头光脚
+CDLMATCHINGLOW       匹配低点形态
+CDLMATHOLD           持有形态
+CDLMORNINGDOJISTAR   晨星十字星
+CDLMORNINGSTAR       晨星
+CDLONNECK            颈上形态
+CDLPIERCING          刺透形态
+CDLRICKSHAWMAN       推车夫形态
+CDLRISEFALL3METHODS  上升/下降三法
+CDLSEPARATINGLINES   分离线形态
+CDLSHOOTINGSTAR      射击之星
+CDLSHORTLINE         短线烛形态
+CDLSPINNINGTOP       纺锤形态
+CDLSTALLEDPATTERN    停滞形态
+CDLSTICKSANDWICH     棒形三明治
+CDLTAKURI            探水形态（带有极长下影线的蜻蜓十字星）
+CDLTASUKIGAP         跳空缺口
+CDLTHRUSTING         插入形态
+CDLTRISTAR           三星形态
+CDLUNIQUE3RIVER      独特三河形态
+CDLUPSIDEGAP2CROWS   向上跳空双乌鸦
+CDLXSIDEGAP3METHODS  向上/向下跳空三法
+</code></pre>
+<h4><a href="func_groups/statistic_functions.html">统计函数</a></h4>
+
+<pre><code>BETA                 贝塔系数
+CORREL               皮尔逊相关系数 (r)
+LINEARREG            线性回归
+LINEARREG_ANGLE      线性回归角度
+LINEARREG_INTERCEPT  线性回归截距
+LINEARREG_SLOPE      线性回归斜率
+STDDEV               标准差
+TSF                  时间序列预测
+VAR                  方差
+</code></pre>
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">TA-Lib written by <a href="https://github.com/mrjbq7">mrjbq7</a>
+        and <a href="https://github.com/ta-lib/ta-lib-python/network/members">contributors</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>

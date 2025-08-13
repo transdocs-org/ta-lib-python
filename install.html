@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>TA-Lib 中文文档</title>
+    <script defer src="https://cdn.jsdmirror.com/gh/transdocs-org/cdn/transdocs-info-modal.js"></script>
+    <script async src="https://hm.baidu.com/hm.js?2fe1095387fd2f2c25892a4fde2f0cc2"></script>
+  </head>
+
+  <body>
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://github.com/ta-lib/ta-lib-python">View on GitHub</a>
+            <div class="clearfix">
+                <ul id="menu" class="drop">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="doc_index.html">文档</a></li>
+                </ul>
+            </div>
+            <br>
+            <h1 id="project_title"><a href="https://ta-lib.github.io/ta-lib-python/">TA-Lib 中文文档</a></h1>
+            <h2 id="project_tagline">TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。</h2>
+            <section id="downloads">
+                <a class="zip_download_link" href="https://github.com/ta-lib/ta-lib-python/zipball/master">下载 .zip 文件</a>
+                <a class="tar_download_link" href="https://github.com/ta-lib/ta-lib-python/tarball/master">下载 tar.gz 文件</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+<h1>安装</h1>
+<p>你可以从 PyPI 安装：</p>
+
+<pre><code>$ pip install TA-Lib
+</code></pre>
+<p>或者自行检出源码并运行 <code>setup.py</code>：</p>
+
+<pre><code>$ python setup.py install
+</code></pre>
+<h3>安装错误排查</h3>
+
+<pre><code>func.c:256:28: fatal error: ta-lib/ta_libc.h: 没有那个文件或目录
+编译终止。
+</code></pre>
+<p>如果你遇到类似的构建错误，通常意味着找不到底层的 <code>TA-Lib</code> 库，需要先安装它：</p>
+<h1>依赖项</h1>
+<p>要使用 Python 的 TA-Lib，你需要已经安装了 <a href="https://ta-lib.org/hdr_dw.html">TA-Lib</a>：</p>
+<h4>Mac OS X</h4>
+
+<pre><code>$ brew install ta-lib
+</code></pre>
+<h4>Windows</h4>
+<p>下载 <a href="https://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-msvc.zip">ta-lib-0.4.0-msvc.zip</a>
+并解压到 <code>C:\ta-lib</code></p>
+<h4>Linux</h4>
+<p>下载 <a href="https://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz">ta-lib-0.4.0-src.tar.gz</a> 并执行：</p>
+
+<pre><code>$ tar zxvf ta-lib-0.4.0-src.tar.gz
+$ cd ta-lib
+$ ./configure --prefix=/usr
+$ make
+$ sudo make install
+</code></pre>
+<blockquote>
+<p>如果你使用 <code>make -jX</code> 来构建 <code>TA-Lib</code>，它可能会失败，但这是正常的！
+只需重新运行 <code>make -jX</code>，然后运行 <code>[sudo] make install</code>。</p>
+</blockquote>
+<p><a href="doc_index.html">文档目录</a>
+<a class="float-right" href="func.html"> 下一步：使用函数 API</a></p>
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">TA-Lib written by <a href="https://github.com/mrjbq7">mrjbq7</a>
+        and <a href="https://github.com/ta-lib/ta-lib-python/network/members">contributors</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>

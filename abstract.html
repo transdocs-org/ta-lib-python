@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>TA-Lib 中文文档</title>
+    <script defer src="https://cdn.jsdmirror.com/gh/transdocs-org/cdn/transdocs-info-modal.js"></script>
+    <script async src="https://hm.baidu.com/hm.js?2fe1095387fd2f2c25892a4fde2f0cc2"></script>
+  </head>
+
+  <body>
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="forkme_banner" href="https://github.com/ta-lib/ta-lib-python">View on GitHub</a>
+            <div class="clearfix">
+                <ul id="menu" class="drop">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="doc_index.html">文档</a></li>
+                </ul>
+            </div>
+            <br>
+            <h1 id="project_title"><a href="https://ta-lib.github.io/ta-lib-python/">TA-Lib 中文文档</a></h1>
+            <h2 id="project_tagline">TA-Lib 中文文档：用于 TA-Lib 的 Python 封装（https://ta-lib.org/），每天定时更新。</h2>
+            <section id="downloads">
+                <a class="zip_download_link" href="https://github.com/ta-lib/ta-lib-python/zipball/master">下载 .zip 文件</a>
+                <a class="tar_download_link" href="https://github.com/ta-lib/ta-lib-python/tarball/master">下载 tar.gz 文件</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+<h1>抽象API快速入门</h1>
+<p>如果你已经熟悉函数API的使用方式，那么使用抽象API也会感觉非常相似。每个函数接收相同的输入，以Numpy数组的字典形式传递：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">import</span><span class="highlight w"> </span><span class="highlight nn">numpy</span><span class="highlight w"> </span><span class="highlight k">as</span><span class="highlight w"> </span><span class="highlight nn">np</span>
+<span class="highlight c1"># 注意：所有的ndarray必须长度相同！</span>
+<span class="highlight n">inputs</span> <span class="highlight o">=</span> <span class="highlight p">{</span>
+    <span class="highlight s1">&#39;open&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;high&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;low&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;close&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">),</span>
+    <span class="highlight s1">&#39;volume&#39;</span><span class="highlight p">:</span> <span class="highlight n">np</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight o">.</span><span class="highlight n">random</span><span class="highlight p">(</span><span class="highlight mi">100</span><span class="highlight p">)</span>
+<span class="highlight p">}</span>
+</pre></div>
+<p>函数可以直接导入，也可以通过名称实例化：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">from</span><span class="highlight w"> </span><span class="highlight nn">talib</span><span class="highlight w"> </span><span class="highlight kn">import</span> <span class="highlight n">abstract</span>
+<span class="highlight n">sma</span> <span class="highlight o">=</span> <span class="highlight n">abstract</span><span class="highlight o">.</span><span class="highlight n">SMA</span>
+<span class="highlight n">sma</span> <span class="highlight o">=</span> <span class="highlight n">abstract</span><span class="highlight o">.</span><span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;sma&#39;</span><span class="highlight p">)</span>
+</pre></div>
+<p>自此，调用函数的方式与函数API基本一致：</p>
+<div class="highlight"><pre><span></span><span class="highlight kn">from</span><span class="highlight w"> </span><span class="highlight nn">talib.abstract</span><span class="highlight w"> </span><span class="highlight kn">import</span> <span class="highlight o">*</span>
+<span class="highlight n">output</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight p">(</span><span class="highlight n">inputs</span><span class="highlight p">,</span> <span class="highlight n">timeperiod</span><span class="highlight o">=</span><span class="highlight mi">25</span><span class="highlight p">)</span> <span class="highlight c1"># 默认在收盘价上计算</span>
+<span class="highlight n">output</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight p">(</span><span class="highlight n">inputs</span><span class="highlight p">,</span> <span class="highlight n">timeperiod</span><span class="highlight o">=</span><span class="highlight mi">25</span><span class="highlight p">,</span> <span class="highlight n">price</span><span class="highlight o">=</span><span class="highlight s1">&#39;open&#39;</span><span class="highlight p">)</span> <span class="highlight c1"># 在开盘价上计算</span>
+<span class="highlight n">upper</span><span class="highlight p">,</span> <span class="highlight n">middle</span><span class="highlight p">,</span> <span class="highlight n">lower</span> <span class="highlight o">=</span> <span class="highlight n">BBANDS</span><span class="highlight p">(</span><span class="highlight n">inputs</span><span class="highlight p">,</span> <span class="highlight mi">20</span><span class="highlight p">,</span> <span class="highlight mi">2</span><span class="highlight p">,</span> <span class="highlight mi">2</span><span class="highlight p">)</span>
+<span class="highlight n">slowk</span><span class="highlight p">,</span> <span class="highlight n">slowd</span> <span class="highlight o">=</span> <span class="highlight n">STOCH</span><span class="highlight p">(</span><span class="highlight n">inputs</span><span class="highlight p">,</span> <span class="highlight mi">5</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">)</span> <span class="highlight c1"># 默认使用high, low, close</span>
+<span class="highlight n">slowk</span><span class="highlight p">,</span> <span class="highlight n">slowd</span> <span class="highlight o">=</span> <span class="highlight n">STOCH</span><span class="highlight p">(</span><span class="highlight n">inputs</span><span class="highlight p">,</span> <span class="highlight mi">5</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">,</span> <span class="highlight n">prices</span><span class="highlight o">=</span><span class="highlight p">[</span><span class="highlight s1">&#39;high&#39;</span><span class="highlight p">,</span> <span class="highlight s1">&#39;low&#39;</span><span class="highlight p">,</span> <span class="highlight s1">&#39;open&#39;</span><span class="highlight p">])</span>
+</pre></div>
+<h2>高级用法</h2>
+<p>对于TA-Lib更高级的用例，抽象API还提供了更多的灵活性。你甚至可以子类化 <code>abstract.Function</code> 并重写 <code>set_input_arrays</code> 方法，以自定义函数接受的输入数据类型（例如pandas的DataFrame）。</p>
+<p>可以通过info属性访问每个函数的详细信息：</p>
+<div class="highlight"><pre><span></span><span class="highlight nb">print</span> <span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;stoch&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">info</span>
+<span class="highlight p">{</span>
+  <span class="highlight s1">&#39;name&#39;</span><span class="highlight p">:</span> <span class="highlight s1">&#39;STOCH&#39;</span><span class="highlight p">,</span>
+  <span class="highlight s1">&#39;display_name&#39;</span><span class="highlight p">:</span> <span class="highlight s1">&#39;随机指标&#39;</span><span class="highlight p">,</span>
+  <span class="highlight s1">&#39;group&#39;</span><span class="highlight p">:</span> <span class="highlight s1">&#39;动量指标&#39;</span><span class="highlight p">,</span>
+  <span class="highlight s1">&#39;input_names&#39;</span><span class="highlight p">:</span> <span class="highlight n">OrderedDict</span><span class="highlight p">([</span>
+    <span class="highlight p">(</span><span class="highlight s1">&#39;prices&#39;</span><span class="highlight p">,</span> <span class="highlight p">[</span><span class="highlight s1">&#39;high&#39;</span><span class="highlight p">,</span> <span class="highlight s1">&#39;low&#39;</span><span class="highlight p">,</span> <span class="highlight s1">&#39;close&#39;</span><span class="highlight p">]),</span>
+  <span class="highlight p">]),</span>
+  <span class="highlight s1">&#39;parameters&#39;</span><span class="highlight p">:</span> <span class="highlight n">OrderedDict</span><span class="highlight p">([</span>
+    <span class="highlight p">(</span><span class="highlight s1">&#39;fastk_period&#39;</span><span class="highlight p">,</span> <span class="highlight mi">5</span><span class="highlight p">),</span>
+    <span class="highlight p">(</span><span class="highlight s1">&#39;slowk_period&#39;</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">),</span>
+    <span class="highlight p">(</span><span class="highlight s1">&#39;slowk_matype&#39;</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">),</span>
+    <span class="highlight p">(</span><span class="highlight s1">&#39;slowd_period&#39;</span><span class="highlight p">,</span> <span class="highlight mi">3</span><span class="highlight p">),</span>
+    <span class="highlight p">(</span><span class="highlight s1">&#39;slowd_matype&#39;</span><span class="highlight p">,</span> <span class="highlight mi">0</span><span class="highlight p">),</span>
+  <span class="highlight p">]),</span>
+  <span class="highlight s1">&#39;output_names&#39;</span><span class="highlight p">:</span> <span class="highlight p">[</span><span class="highlight s1">&#39;slowk&#39;</span><span class="highlight p">,</span> <span class="highlight s1">&#39;slowd&#39;</span><span class="highlight p">],</span>
+<span class="highlight p">}</span>
+</pre></div>
+<p>或者以人类可读的格式：</p>
+<div class="highlight"><pre><span></span><span class="highlight n">help</span><span class="highlight p">(</span><span class="highlight n">STOCH</span><span class="highlight p">)</span>
+<span class="highlight nb">str</span><span class="highlight p">(</span><span class="highlight n">STOCH</span><span class="highlight p">)</span>
+</pre></div>
+<p><code>Function</code> 的其他有用属性：</p>
+<div class="highlight"><pre><span></span><span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">function_flags</span>
+<span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">input_names</span>
+<span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">input_arrays</span>
+<span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">parameters</span>
+<span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">lookback</span>
+<span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">output_names</span>
+<span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">output_flags</span>
+<span class="highlight n">Function</span><span class="highlight p">(</span><span class="highlight s1">&#39;x&#39;</span><span class="highlight p">)</span><span class="highlight o">.</span><span class="highlight n">outputs</span>
+</pre></div>
+<p>除了直接调用函数之外，函数还保持状态，并会在设置后记住它们的参数/输入数组。你可以使用run()设置参数并使用新的输入数据重新计算：</p>
+<div class="highlight"><pre><span></span><span class="highlight n">SMA</span><span class="highlight o">.</span><span class="highlight n">parameters</span> <span class="highlight o">=</span> <span class="highlight p">{</span><span class="highlight s1">&#39;timeperiod&#39;</span><span class="highlight p">:</span> <span class="highlight mi">15</span><span class="highlight p">}</span>
+<span class="highlight n">result1</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight o">.</span><span class="highlight n">run</span><span class="highlight p">(</span><span class="highlight n">input_arrays1</span><span class="highlight p">)</span>
+<span class="highlight n">result2</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight o">.</span><span class="highlight n">run</span><span class="highlight p">(</span><span class="highlight n">input_arrays2</span><span class="highlight p">)</span>
+
+<span class="highlight c1"># 或者设置input_arrays并更改参数：</span>
+<span class="highlight n">SMA</span><span class="highlight o">.</span><span class="highlight n">input_arrays</span> <span class="highlight o">=</span> <span class="highlight n">input_arrays1</span>
+<span class="highlight n">ma10</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight p">(</span><span class="highlight n">timeperiod</span><span class="highlight o">=</span><span class="highlight mi">10</span><span class="highlight p">)</span>
+<span class="highlight n">ma20</span> <span class="highlight o">=</span> <span class="highlight n">SMA</span><span class="highlight p">(</span><span class="highlight mi">20</span><span class="highlight p">)</span>
+</pre></div>
+<p>更多详细信息，请查看 <a href="https://github.com/ta-lib/ta-lib-python/blob/master/talib/abstract.pyx#L46">代码</a>。</p>
+<p><a href="doc_index.html">文档索引</a></p>
+        </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">TA-Lib written by <a href="https://github.com/mrjbq7">mrjbq7</a>
+        and <a href="https://github.com/ta-lib/ta-lib-python/network/members">contributors</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>
